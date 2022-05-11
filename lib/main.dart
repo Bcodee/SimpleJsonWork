@@ -1,12 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:http/http.dart ' as http;
 import 'package:jsonwork/models/posts.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
         myListPosts.add(Post.fromMap(i as Map<String, dynamic>));
       }
 
-      print(myListPosts);
+      // print(myListPosts);
 
       return myListPosts;
       // If the server did return a 200 OK response,
@@ -44,9 +43,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Json Work',
       home: Scaffold(
-        backgroundColor: Color(0xffcdb4db),
+        backgroundColor: const Color(0xffcdb4db),
         appBar: AppBar(
-          title: Text("Json Simple Work"),
+          title: const Text("Json Simple Work"),
         ),
         body: FutureBuilder<List<Post>>(
           future: fetchPost(),
@@ -55,7 +54,7 @@ class MyApp extends StatelessWidget {
               return GridView.builder(
                 // physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
                   // crossAxisSpacing: 5.0,
                   // mainAxisSpacing: ,
@@ -72,7 +71,7 @@ class MyApp extends StatelessWidget {
                             child: Container(
                               child: Text(
                                 "id:${snapshot.data![index].id}",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.w900),
                               ),
                               decoration: BoxDecoration(
@@ -81,7 +80,7 @@ class MyApp extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           GridTile(
@@ -92,7 +91,7 @@ class MyApp extends StatelessWidget {
                                     padding: const EdgeInsets.all(5.0),
                                     child: Text(
                                       "Title: ${snapshot.data![index].title}",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w900),
                                     ),
@@ -105,7 +104,7 @@ class MyApp extends StatelessWidget {
                                       color: Colors.black, width: 2)),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           GridTile(
@@ -114,13 +113,13 @@ class MyApp extends StatelessWidget {
                               child: Text(
                                   "Description: ${snapshot.data![index].body}"),
                               decoration: BoxDecoration(
-                                color: Color(0xfff4a261),
+                                color: const Color(0xfff4a261),
                                 border:
                                     Border.all(color: Colors.black, width: 0.5),
                               ),
                             ),
                           ),
-                                                    Divider(color: Colors.black,height: 40,thickness: 2.0),
+                                                    const Divider(color: Colors.black,height: 40,thickness: 2.0),
 
                         ],
                       ),
